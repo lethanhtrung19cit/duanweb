@@ -1,0 +1,211 @@
+﻿
+@{
+    ViewBag.Title = "Cập nhật hoạt động nghiên cứu khoa học";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int stt = 1;
+    string id = "a";
+    string id2 = "b";
+    var listTopicOfStudent = (List<DuAnQLNCKH.Models.TopicOfStudentView>)ViewBag.listTopicOfStudent;
+    var detailProgress = (List<DuAnQLNCKH.Models.TopicOfStudentView>)ViewBag.detailProgressSt;
+
+}
+
+<div>
+    <div style="margin:20px 0 20px 0" class="page-title">
+        <img src="~/images/report.png" width="50px" height="50px" />
+        <strong style="font-size:25px">Báo cáo đề tài của sinh viên</strong>
+    </div>
+    <div>
+        <table class="table1" style="width:1100px">
+            <tr class="headerrow">
+                <th>
+                    STT
+                </th>
+                <th>
+                    Tên đề tài
+                </th>
+                <th>
+                    Tên sinh viên
+                </th>
+                <th>
+                    Sản phẩm của NCKH
+                </th>
+                 
+                <th>
+                    Tiến độ
+                </th>
+                
+                <th>
+
+                </th>
+                 <th></th>
+            </tr>
+
+            @foreach (var topicOfStudent in listTopicOfStudent)
+            {
+
+        <tr>
+            <td>@stt</td>
+            @{
+                stt++;
+            }
+            <td style="width:170px; color:blue; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
+
+                @topicOfStudent.topicOfStudent.Name
+
+            </td>
+            <td>
+
+                @topicOfStudent.topicOfStudent.NameSt
+
+
+            </td>
+            <td width="150px">
+
+                @topicOfStudent.pointTable.NameP
+
+
+            </td>
+
+            <td id="@stt" class="Progress">
+
+                @topicOfStudent.topicOfStudent.Progress
+
+            </td>
+
+            <td>
+                <div id="@topicOfStudent.topicOfStudent.IdTp" class="modal fade" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document" style="max-width:700px">
+                        <div class="modal-content">
+                            <div id="myModal">
+                                <div class="modal-header">
+
+                                    <h4 class="modal-title">Cập nhật hoạt động</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                </div>
+
+                                <div class="modal-body">
+
+                                    <div class="form-group hitec-border-bottom-dotted">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <label style="font-weight: bold; float: right; font-size: 19px; font-family: 'Times New Roman'; color: black" class="control-label">Tên đề tài</label>
+                                            </div>
+                                            <div class="col-md-7" style="text-align:left">
+                                                <p style="font-size:18px; float:left" class="form-control-static"> @topicOfStudent.topicOfStudent.Name</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @{string id3 = id2 + stt.ToString(); }
+                                    <div class="form-group hitec-border-bottom-dotted" style="height:210px">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <label style="font-weight: bold; float: right; font-size: 19px; font-family: 'Times New Roman'; color: black" class="control-label">Nội dung báo cáo</label>
+                                            </div>
+                                            <div class="col-md-7" style="text-align:left">
+                                                <textarea style="float:left; width:400px; height:200px;" class="form-control-static" id="@id3" name="Content" type="text"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group hitec-border-bottom-dotted">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <label style="font-weight: bold; float: right; font-size: 19px; font-family: 'Times New Roman'; color: black" class="control-label">Cập nhật tiến độ</label>
+                                            </div>
+                                            <div class="col-md-7" style="text-align:left">
+                                                <input style="float:left; width:400px" class="form-control-static" id="@topicOfStudent.topicOfStudent.IdTp" name="Status" type="text" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <input type="button" onclick="updateTopic('@topicOfStudent.topicOfStudent.IdTp', '@stt', '@id3')" class="btn btn-primary" value="Lưu" />
+                                    </div>
+                                </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+                <button id="showModal @topicOfStudent.topicOfStudent.IdTp" style="width:130px" type="button" class="btn btn-primary" data-toggle="modal" data-target="#@topicOfStudent.topicOfStudent.IdTp"><i class="fa fa-pen-alt">Cập nhật</i>  </button>
+
+            </td>
+
+            <td>
+                @{string id1 = id + stt.ToString(); }
+                <div id="@id1" class="modal fade" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div id="myModal">
+                                <div class="modal-header">
+
+                                    <h4 class="modal-title">Lich sử báo cáo đề tài</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                </div>
+
+                                <div class="modal-body">
+
+
+                                    <table class="tale1">
+                                        <tr class="headerrow">
+                                            <th> Tên đề tài </th>
+                                            <th>Ngày báo cáo</th>
+                                            <th>Nội dung báo cáo</th>
+                                        </tr>
+
+                                        @foreach (var item in detailProgress)
+                                        {
+                                            if (item.topicOfStudent.IdTp.Equals(topicOfStudent.topicOfStudent.IdTp))
+                                            {
+                                                <tr>
+                                                    <td>@item.topicOfStudent.Name</td>
+                                                    <td>@item.progressSt.Date</td>
+                                                    <td>@item.progressSt.Status</td>
+
+                                                </tr>
+                                            }
+                                        }
+                                    </table>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+                <button style="width: 110px; background: #aab148" type="button" class="btn btn-primary" data-toggle="modal" data-target="#@id1"><i class="fa fa-history">Lịch sử báo cáo</i>  </button>
+            </td>
+        </tr>
+
+            }
+
+        </table>
+    </div>
+
+
+</div>
+<script>
+    function updateTopic(IdTp, stt, Content) {
+        //alert('#Status+' + IdTp);
+
+        var Status = $("input#" + IdTp).val();
+        var Progress = $("textarea#" + Content).val();
+        $('#' + stt).text(Status);
+        alert("Cập nhật thành công");
+        $.ajax({
+            type: "POST",
+            url: "/UpdateActivity/UpdateToSt/",
+            data: { IdTp: IdTp, Status: Status, Progress: Progress },
+            
+            dataType: "json",
+            success: function (data) {
+                
+            }
+
+        });
+    }
+</script>
+
+

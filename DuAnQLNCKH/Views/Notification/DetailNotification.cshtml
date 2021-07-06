@@ -1,0 +1,234 @@
+﻿@{
+    ViewBag.Title = "DetailNotification";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<style>
+    .tabs {
+        height: 5475px;
+        width: 100%;
+        text-align: left;
+    }
+
+    .tab-nav-wrapper {
+        width: 100%;
+        overflow-x: auto;
+        position: relative !important;
+        z-index: 999 !important;
+        top: 3px;
+    }
+
+    .tabs ul {
+        display: block;
+        /*width: max-content;*/
+        overflow-y: hidden;
+        margin: 0px;
+        padding-inline-start: 5px;
+    }
+
+        .tabs ul li {
+            display: inline-block;
+            border: 1px solid grey;
+            border-bottom: 3px solid blue;
+            background-color: white;
+        }
+
+            .tabs ul li.active {
+                border: 1px solid black;
+                border-bottom: 3px solid white;
+            }
+
+            .tabs ul li a {
+                text-decoration: none;
+                
+                padding: 10px;
+                line-height: 25px;
+                position: relative;
+                font-weight: bold;
+            }
+
+    .tab-content-wrapper {
+        position: relative !important;
+        z-index: 1 !important;
+        border: 3px solid blue;
+        padding: 20px;
+        min-height: 40px;
+    }
+</style>
+
+<div class="tabs">
+    <div class="tab-nav-wrapper">
+        <ul>
+            <li class="active"><a href="#tab1">Đề tài giảng viên</a></li>
+            <li><a href="#tab2">Contact Information</a></li>
+            <li><a href="#tab3">Documents</a></li>
+        </ul>
+    </div>
+    <div class="tab-content-wrapper">
+        <div id="tab1" class="tab-content" style="display:none;">
+            <table class="table" id="table1" style="width:700px">
+                <tr>
+                    <th>
+                        Mã đề tài
+                    </th>
+                    <th>
+                        Tên đề tài
+                    </th>
+                    <th>
+                        Mã giảng viên
+                    </th>
+                    <th>
+                        Mã điểm
+                    </th>
+                    <th>
+                        Bắt đầu
+                    </th>
+                    <th>
+                        Thời gian
+                    </th>
+                    <th>
+                        Kinh phí
+                    </th>
+                    <th>
+                        Trạng Thái
+                    </th>
+                    <th>
+                        Progress
+                    </th>
+
+                </tr>
+                @foreach (DuAnQLNCKH.Models.TopicOfLecture deTaiGV in Model)
+                {
+
+                    <tr>
+                        <td>
+                            <span>
+                                @deTaiGV.IdTp
+
+                            </span>
+                        </td>
+                        <td>
+                            <span>
+                                @deTaiGV.Name
+                            </span>
+                        </td>
+                        <td>
+                            <span>
+                                @deTaiGV.IdLe
+
+                            </span>
+                        </td>
+                        <td>
+                            <span>
+                                @deTaiGV.IdP
+
+                            </span>
+                        </td>
+                        <td>
+                            <span>
+                                @deTaiGV.DateSt
+                            </span>
+                        </td>
+                        <td>
+                            <span>
+                                @deTaiGV.Times
+                            </span>
+                        </td>
+                        <td>
+                            <span>
+                                @deTaiGV.Expense
+                            </span>
+                        </td>
+                        <td>
+                            <span>
+                                @deTaiGV.Status
+                            </span>
+                        </td>
+                        <td>
+                            <span>
+                                @deTaiGV.Progress
+                            </span>
+                        </td>
+                        <td>
+                            <span>
+                                <button style="width:100px" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Gia hạn</button>
+                                <form method="post" asp-action="Index" asp-controller="Home">
+                                    <div id="exampleModal" class="modal" tabindex="-1" role="dialog">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Lịch gia hạn</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="form-group">
+                                                        <label>Tên đề tài: @deTaiGV.Name</label>
+
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Ngày báo cáo:</label>
+                                                        @*@using (Html.BeginForm())
+                                                {
+                                                    <br />
+                                                    @Html.EditorFor(a=>a.DateData, new { HtmlTextWriterAttribute = new { @class = "datepicker" } })
+                                                }*@
+                                                        <input type="text" class="datepicker" />
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="btn btn-primary">Save changes</button>
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </span>
+                        </td>
+
+
+                    </tr>
+
+                }
+
+
+                @*@foreach (var item in Model)
+        {
+            <tr id="row_@item.MaDT">
+
+            </tr>
+        }*@
+            </table>
+        </div>
+        <div id="tab2" class="tab-content" style="display:none;">
+            Content 2
+        </div>
+        <div id="tab3" class="tab-content" style="display:none;">
+            Content 3
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $(".tab-nav-wrapper li.active").click();
+        $($(".tab-nav-wrapper li.active a").attr("href")).show();
+
+        $(".tab-nav-wrapper li").click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            $(".tab-nav-wrapper li").removeClass("active");
+            $(this).addClass("active");
+
+            var target = $(this).find("a").attr("href");
+            $(".tab-content-wrapper").find(".tab-content").hide();
+            $(".tab-content-wrapper").find(target).show();
+        })
+    });
+</script>

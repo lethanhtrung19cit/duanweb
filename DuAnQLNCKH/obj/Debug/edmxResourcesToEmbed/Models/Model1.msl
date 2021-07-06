@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="nckh_dhdnModelStoreContainer" CdmEntityContainer="nckh_dhdnEntities20">
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="nckh_dhdnModel.Account">
+        <MappingFragment StoreEntitySet="Account">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+          <ScalarProperty Name="Access" ColumnName="Access" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="nckh_dhdnModel.Department">
+        <MappingFragment StoreEntitySet="Department">
+          <ScalarProperty Name="IdKhoa" ColumnName="IdKhoa" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetailNotifis">
+      <EntityTypeMapping TypeName="nckh_dhdnModel.DetailNotifi">
+        <MappingFragment StoreEntitySet="DetailNotifi">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdNo" ColumnName="IdNo" />
+          <ScalarProperty Name="DetalContent" ColumnName="DetalContent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetailStatementLes">
+      <EntityTypeMapping TypeName="nckh_dhdnModel.DetailStatementLe">
+        <MappingFragment StoreEntitySet="DetailStatementLe">
+          <ScalarProperty Name="IdDtST" ColumnName="IdDtST" />
+          <ScalarProperty Name="IdSt" ColumnName="IdSt" />
+          <ScalarProperty Name="IdTp" ColumnName="IdTp" />
+          <ScalarProperty Name="Times" ColumnName="Times" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Extensions">
+      <EntityTypeMapping TypeName="nckh_dhdnModel.Extension">
+        <MappingFragment StoreEntitySet="Extension">
+          <ScalarProperty Name="IdEx" ColumnName="IdEx" />
+          <ScalarProperty Name="IdTp" ColumnName="IdTp" />
+          <ScalarProperty Name="Times" ColumnName="Times" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Faculties">
+      <EntityTypeMapping TypeName="nckh_dhdnModel.Faculty">
+        <MappingFragment StoreEntitySet="Faculty">
+          <ScalarProperty Name="IdFa" ColumnName="IdFa" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Information">
+      <EntityTypeMapping TypeName="nckh_dhdnModel.Information">
+        <MappingFragment StoreEntitySet="Information">
+          <ScalarProperty Name="IdLe" ColumnName="IdLe" />
+          <ScalarProperty Name="NameLe" ColumnName="NameLe" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="CMND" ColumnName="CMND" />
+          <ScalarProperty Name="IdKhoa" ColumnName="IdKhoa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notifications">
+      <EntityTypeMapping TypeName="nckh_dhdnModel.Notification">
+        <MappingFragment StoreEntitySet="Notification">
+          <ScalarProperty Name="IdNo" ColumnName="IdNo" />
+          <ScalarProperty Name="DateCreat" ColumnName="DateCreat" />
+          <ScalarProperty Name="PersonCreat" ColumnName="PersonCreat" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PointTables">
+      <EntityTypeMapping TypeName="nckh_dhdnModel.PointTable">
+        <MappingFragment StoreEntitySet="PointTable">
+          <ScalarProperty Name="IdP" ColumnName="IdP" />
+          <ScalarProperty Name="IdTy" ColumnName="IdTy" />
+          <ScalarProperty Name="NameP" ColumnName="NameP" />
+          <ScalarProperty Name="File1" ColumnName="File1" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProgressLes">
+      <EntityTypeMapping TypeName="nckh_dhdnModel.ProgressLe">
+        <MappingFragment StoreEntitySet="ProgressLe">
+          <ScalarProperty Name="IdPr" ColumnName="IdPr" />
+          <ScalarProperty Name="IdTp" ColumnName="IdTp" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProgressSts">
+      <EntityTypeMapping TypeName="nckh_dhdnModel.ProgressSt">
+        <MappingFragment StoreEntitySet="ProgressSt">
+          <ScalarProperty Name="IdPr" ColumnName="IdPr" />
+          <ScalarProperty Name="IdTp" ColumnName="IdTp" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="selectedEmails">
+      <EntityTypeMapping TypeName="nckh_dhdnModel.selectedEmail">
+        <MappingFragment StoreEntitySet="selectedEmail">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Statements">
+      <EntityTypeMapping TypeName="nckh_dhdnModel.Statement">
+        <MappingFragment StoreEntitySet="Statements">
+          <ScalarProperty Name="IdSt" ColumnName="IdSt" />
+          <ScalarProperty Name="DateRp" ColumnName="DateRp" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="nckh_dhdnModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_file">
+      <EntityTypeMapping TypeName="nckh_dhdnModel.tbl_file">
+        <MappingFragment StoreEntitySet="tbl_file">
+          <ScalarProperty Name="file_id" ColumnName="file_id" />
+          <ScalarProperty Name="file_name" ColumnName="file_name" />
+          <ScalarProperty Name="file_ext" ColumnName="file_ext" />
+          <ScalarProperty Name="file_base6" ColumnName="file_base6" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TopicOfLectures">
+      <EntityTypeMapping TypeName="nckh_dhdnModel.TopicOfLecture">
+        <MappingFragment StoreEntitySet="TopicOfLecture">
+          <ScalarProperty Name="IdTp" ColumnName="IdTp" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IdLe" ColumnName="IdLe" />
+          <ScalarProperty Name="IdP" ColumnName="IdP" />
+          <ScalarProperty Name="DateSt" ColumnName="DateSt" />
+          <ScalarProperty Name="Times" ColumnName="Times" />
+          <ScalarProperty Name="Expense" ColumnName="Expense" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Progress" ColumnName="Progress" />
+          <ScalarProperty Name="CountAuthor" ColumnName="CountAuthor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TopicOfStudents">
+      <EntityTypeMapping TypeName="nckh_dhdnModel.TopicOfStudent">
+        <MappingFragment StoreEntitySet="TopicOfStudent">
+          <ScalarProperty Name="IdTp" ColumnName="IdTp" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="NameSt" ColumnName="NameSt" />
+          <ScalarProperty Name="IdSV" ColumnName="IdSV" />
+          <ScalarProperty Name="Emmail" ColumnName="Emmail" />
+          <ScalarProperty Name="IdP" ColumnName="IdP" />
+          <ScalarProperty Name="DateSt" ColumnName="DateSt" />
+          <ScalarProperty Name="Times" ColumnName="Times" />
+          <ScalarProperty Name="Expense" ColumnName="Expense" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Progress" ColumnName="Progress" />
+          <ScalarProperty Name="CountAuthor" ColumnName="CountAuthor" />
+          <ScalarProperty Name="IdFa" ColumnName="IdFa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Types">
+      <EntityTypeMapping TypeName="nckh_dhdnModel.Type">
+        <MappingFragment StoreEntitySet="Type">
+          <ScalarProperty Name="IdTy" ColumnName="IdTy" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

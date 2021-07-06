@@ -1,0 +1,138 @@
+﻿@model DuAnQLNCKH.Models.Account
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var listAccount = (List<DuAnQLNCKH.Models.Account>)ViewBag.listAccount;
+
+}
+
+<h2>Danh sách tài khoản</h2>
+
+<div id="showmodal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <h4 class="modal-title">Thêm mới tài khoản</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            @using (Html.BeginForm("CreateAccount", "Admin", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    <h4>Account</h4>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.PassWord, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.PassWord, new { htmlAttributes = new { @class = "form-control", @type="password" } })
+                            @Html.ValidationMessageFor(model => model.PassWord, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Access, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Access, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Access, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Create" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </div>
+            }
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+ 
+<button id='addAccount' class="btn btn-primary" data-toggle="modal" data-target="#showmodal">Thêm mới tài khoản</button>
+<table class="table">
+    <tr>
+        <th style="font-size:25px">
+           Tên đăng nhập
+        </th>
+        <th style="font-size:25px">
+            Mật khẩu
+        </th>
+        <th style="font-size:25px">
+            Quyền truy cập
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in listAccount)
+    {
+        <tr id="@item.UserName">
+            <td>
+                @item.UserName
+            </td>
+            <td>
+                @item.PassWord
+            </td>
+            <td>
+                @item.Access
+            </td>
+            <td>
+                <input class="btn btn-primary" style="background: #de2121; color: white; font-size: 20px" id="btnDelete" type="button" value="Xóa" data-id="@item.UserName" onclick="deleteAccount()" />
+                <input class="btn btn-primary" style="background: #b9b92d; color: white; font-size: 20px " id="btnUpdate" type="button" value="Sửa" data-id="@item.UserName" onclick="updateAccount()" />
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.UserName }) |*@
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @*@Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+            </td>
+        </tr>
+    }
+
+</table>
+<script>
+    function deleteAccount()
+    {
+        
+        var ele = event.srcElement;
+        //var id = $('td#idtp').data().value;
+        var id = $(ele).data('id');
+        var row = $('#' + id);
+       
+
+        $.ajax({
+            type: "POST",
+            url: "/Admin/DeleteAccount/",
+            data: { UserName: id },
+
+            dataType: "json",
+            success: function (data) {
+                
+                row.remove();
+            }
+
+        });
+
+         
+    }
+
+    function updateAccount() {
+
+        var ele = event.srcElement;
+        //var id = $('td#idtp').data().value;
+        var id = $(ele).data('id');
+       
+        data: { UserName: id }
+        window.location = "/Admin/Edit/"+id
+            
+
+    }
+</script>

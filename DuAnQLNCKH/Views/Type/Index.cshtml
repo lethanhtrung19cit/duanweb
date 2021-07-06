@@ -1,0 +1,128 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    var listtype = (List<DuAnQLNCKH.Models.Type>)ViewBag.listType;
+    var listPointTable = (List<DuAnQLNCKH.Models.PointTable>)ViewBag.listPointTable;
+    var list = (List<DuAnQLNCKH.Models.FilePointTable>)ViewBag.FileList;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Danh sách loại đề tài</h2>
+
+<div>
+    <style>
+        table td, th {
+            padding: 12px;
+        }
+    </style>
+    <table  class="table1">
+        <tr class="headerrow">
+            <th> Mã loại đề tài</th>
+            <th> Tên loại đề tài</th>
+        </tr>
+        @foreach (var item in listtype)
+        {
+            <tr>
+
+                <td>@item.IdTy </td>
+                <td> @item.Name </td>
+            </tr>
+        }
+
+    </table>
+
+
+    <div id="showmodal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <h4 class="modal-title">Thêm mới đề tài</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                @using (Html.BeginForm("CreateType", "Type", FormMethod.Post, new { @class = "form - horizontal" }))
+                {
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                            Tên đề tài
+                            @Html.TextBox("Name")
+                        </div>
+                    </div><div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <input type="submit" class="btn btn-primary" value="Lưu" />
+                    </div>
+                }
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <button id='addtype' class="btn btn-primary" data-toggle="modal" data-target="#showmodal">Thêm mới</button>
+    <div style="margin-top:60px">
+        <h2> Danh sách bảng điểm </h2>
+
+        <table  class="table1">
+            <tr class="headerrow">
+                <th> Mã điểm</th>
+                <th> Mã loại </th>
+                <th> Tên điểm </th>
+                <th> File </th>
+            </tr>
+            @foreach (var item in list)
+            {
+                <tr>
+                    <td> @item.IdP </td>
+                    <td>@item.IdTy </td>
+                    <td> @item.NameP </td>
+
+                    <td> <a href="~/Type/DownloadFile?filePath=@item.File1">@item.File1</a>  </td>
+                </tr>
+            }
+
+        </table>
+
+
+        <div id="showmodalpoint" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+
+                        <h4 class="modal-title">Thêm mới điểm</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    @using (Html.BeginForm("CreatePoint", "Type", FormMethod.Post, new { @class = "form - horizontal", enctype = "multipart/form-data" }))
+                    {
+                        <div class="modal-body">
+                            <div class="form-group">
+                                Loại đề tài
+                                @if (ViewBag.listtypes != null)
+                                {
+
+                                    @Html.DropDownList("IdTy", ViewBag.listtypes as SelectList, "--Lựa chọn loại--", new { @class = "form-control" })
+
+                                }
+                            </div>
+                            <div class="form-group">
+                                Tên điểm
+                                @Html.TextBox("NameP", null, new { @class = "form-control" })
+                            </div>
+                            <div class="form-group">
+                                File
+
+                                <input id="files" type="file" name="files" required />
+                            </div>
+                           
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <input type="submit" class="btn btn-primary" value="Lưu" />
+                        </div>
+                    }
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        <button id='addpoint' class="btn btn-primary" data-toggle="modal" data-target="#showmodalpoint">Thêm mới</button>
+    </div>
+</div>
+
+

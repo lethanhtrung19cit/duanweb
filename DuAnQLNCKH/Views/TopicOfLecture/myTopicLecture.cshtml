@@ -1,0 +1,89 @@
+﻿
+@{
+    ViewBag.Title = "myTopicLecture";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var topicExtension = (List<DuAnQLNCKH.Models.TopicOfLectureView>)ViewBag.topicExtension;
+    var topicProgress = (List<DuAnQLNCKH.Models.TopicOfLectureView>)ViewBag.topicProgress;
+}
+
+<div>
+    <div style="font-size:24px; font-weight:bold; margin-bottom:20px">Đề tài chờ duyệt</div>
+    @if (topicExtension.Count < 1)
+    {
+        <div>Không có đề tài nào</div>
+    }
+    else
+    {
+        foreach (var item in topicExtension)
+        {
+
+            <div style="color:blue">
+                Tên đề tài :
+                @item.topicOfLecture.Name
+            </div>
+            <div>
+                Ngày bắt đầu :
+                @item.topicOfLecture.DateSt
+            </div>
+            <div>
+                Thời gian thực hiện :
+                @item.topicOfLecture.Times
+            </div>
+            <div style="color:red">
+                Chi phí :
+                @item.topicOfLecture.Expense
+            </div>
+            <div>
+                Trạng thái :
+                @item.topicOfLecture.Status
+            </div>
+            <div>
+                --------------------------------------------------------------------------
+            </div>
+        }
+
+    }
+
+    <div style="font-size:24px; font-weight:bold; margin-top: 50px; margin-bottom:20px">Đề tài đang thực hiện</div>
+    @if (topicProgress.Count < 1)
+    {
+        <div>Không có đề tài nào</div>
+    }
+    else
+    {
+
+        foreach (var item in topicProgress)
+        {
+
+            <div style="color:blue">
+                Tên đề tài :
+                @item.topicOfLecture.Name
+            </div>
+            <div>
+                Ngày bắt đầu :
+                @item.topicOfLecture.DateSt
+            </div>
+            <div>
+                Thời gian thực hiện :
+                @item.topicOfLecture.Times
+            </div>
+            <div style="color:red">
+                Chi phí :
+                @item.topicOfLecture.Expense
+            </div>
+            <div>
+                Trạng thái :
+                @item.topicOfLecture.Status
+            </div>
+            <div style="color: #e4a70a">
+                Tiến độ :
+                @item.topicOfLecture.Progress
+            </div>
+            <div>
+                --------------------------------------------------------------------------
+            </div>
+        }
+    }
+   
+</div>
+

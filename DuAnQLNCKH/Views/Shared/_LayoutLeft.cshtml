@@ -1,0 +1,145 @@
+﻿<!-- Main Content -->
+<div id="content" style="width: 250px; float: left">
+    <!-- Sidebar -->
+    <ul style="width: 250px; border-right:solid 3px blue" class="navbar-nav bg-gradient-primary sidebar" id="accordionSidebar">
+
+        <!-- Sidebar - Brand -->
+        <!-- Divider -->
+        <!-- Nav Item - Dashboard -->
+        <!-- Divider -->
+        <!-- Heading -->
+        @*<div class="sidebar-heading">
+            <i style="font-size:15x" class="far fa-user-circle"></i>
+            <span style="font-size:15px; color:white">Tài Khoản</span>
+        </div>*@
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+               aria-expanded="true" aria-controls="collapseTwo">
+                <img src="~/images/setting-icon-500x500.png" width="35px" height="35px" />
+                <span style="color:black">
+                    <b>Tài khoản</b>
+                </span>
+            </a>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+
+                    <a class="collapse-item" href="@Url.Action("Index", "UserManagement")">Thay Đổi Thông tin</a>
+                    <a class="collapse-item" href="@Url.Action("changePassWord", "UserManagement")">Đổi Mật Khẩu</a>
+                    <a class="collapse-item" href="@Url.Action("Index", "Login")"> Đăng xuất </a>
+                </div>
+            </div>
+        </li>
+        <!-- Nav Item - Utilities Collapse Menu -->
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+
+        <li class="nav-item active">
+            @*<a class="nav-link" href="" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
+            aria-controls="collapsePages">*@
+            <a class="nav-link" data-toggle="collapse" data-target="#collapsePages"
+               aria-expanded="true" aria-controls="collapsePages">
+                 
+                <img src="~/images/open-file-folder-emoji.png" width="30px" height="30px" />
+                <span style="color:black;">Quản lý đề tài</span>
+            </a>
+            <div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
+                 data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    @*<h6 class="collapse-header">Login Screens:</h6>*@
+
+                    
+
+                    <a href="@Url.Action("chuaduyet", "TopicOfLecture")" class="collapse-item">
+
+                        Xét duyệt đề tài
+                    </a>
+                    <a href="@Url.Action("Index", "TopicOfLecture")" class="collapse-item">
+
+                        Đề tài đang thực hiện
+                    </a>
+                    <a href="@Url.Action("listextension", "TopicOfLecture")" class="collapse-item">
+
+                        Gia hạn đề tài
+                    </a>
+                </div>
+            </div>
+        </li>
+        @*<li class="nav-item">
+            <a class="nav-link" href="@Url.Action("Index", "Type")">
+                <img src="~/images/todo-list-1725465-1465626.png" width="30px" height="30px" />
+                <span style="color: black; ">Danh sách loại đề tài</span>
+            </a>
+        </li>*@
+
+
+        <!-- Nav Item - Charts -->
+        <!-- Nav Item - Tables -->
+
+        <li class="nav-item">
+            <a class="nav-link" href="@Url.Action("Index", "Statistic")">
+                <img src="~/images/time-statistics-1605698-1361047.png" width="30px" height="30px" />               
+                <span style="color: black">Thống kê danh mục đề tài</span>
+            </a>
+        </li>
+  
+        <li class="nav-item">
+            <a class="nav-link" href="https://docs.google.com/spreadsheets/d/12JjOQXYjV08c-Q2zqbrNio7kieVfzHB57x0SXLzrTbQ/edit#gid=0">
+                <i style="color: blue" class="fas fa-fw fa-table"></i>
+                <span style="color: black">Cập Nhật Tính Điểm KHCN</span>
+            </a>
+
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+            <!-- Sidebar Message
+        <div class="sidebar-card">
+            <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="">
+            <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
+            <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
+        </div>
+            -->
+
+    </ul>
+    <!-- End of Sidebar -->
+    <!-- Content Wrapper -->
+    <!-- End of Content Wrapper -->
+
+
+</div>
+<!-- End of Page Wrapper -->
+<!-- Scroll to Top Button-->
+@*<a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+     Logout Modal
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>*@
+
+<!-- /.container-fluid -->
+<!-- End of Main Content -->

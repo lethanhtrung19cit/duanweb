@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var listTopicOfStudent = (List<DuAnQLNCKH.Models.TopicOfStudentView>)ViewBag.listTopicOfStudent;
+}
+
+
+<style>
+    table td, th {
+        padding: 8px;
+        border: 1px solid black;
+    }
+    
+</style>
+<table width="1000px" style="text-align:center">
+
+    <tr style="background: #4747b1">
+
+        <th>
+            Mã đề tài
+        </th>
+        <th>Tên đề tài</th>
+        <th> Tên sinh viên </th>
+        <th> Mã sinh viên </th>
+        <th>Email</th>
+        <th>
+            Mã điểm
+
+        </th>
+        <th>  Ngày bắt đầu      </th>
+        <th>
+            Thời gian thực hiện
+        </th>
+        <th>
+            Chi phí
+        </th>
+        <th>
+            Trạng thái
+        </th>
+        <th>
+            Tiến trình
+        </th>
+
+
+    </tr>
+    
+    @foreach (var item in listTopicOfStudent)
+    {
+
+        <tr>
+                       
+            <td width="100px">@item.topicOfStudent.Name</td>          
+            <td> @item.topicOfStudent.NameSt </td>
+            <td> @item.topicOfStudent.IdSV </td>
+            <td> @item.topicOfStudent.Emmail </td>
+            <td width="100px">@item.pointTable.NameP</td>
+            <td>@item.topicOfStudent.DateSt.ToString("dd/MM/yyyy")</td>
+            <td>@item.topicOfStudent.Times</td>
+            <td>@item.topicOfStudent.Expense</td>
+            <td>@item.topicOfStudent.Status</td>
+            <td>@item.topicOfStudent.Progress</td>
+   
+        </tr>
+    }
+</table>

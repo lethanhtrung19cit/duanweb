@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="450729a819294fd79fa29984b5ebbb1e" Name="Diagram1">
+        <EntityTypeShape EntityType="nckh_dhdnModel.Account" Width="1.5" PointX="9.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="nckh_dhdnModel.Department" Width="1.5" PointX="9.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="nckh_dhdnModel.DetailNotifi" Width="1.5" PointX="10" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="nckh_dhdnModel.DetailStatementLe" Width="1.5" PointX="7.5" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="nckh_dhdnModel.Email" Width="1.5" PointX="9.75" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="nckh_dhdnModel.Extension" Width="1.5" PointX="7.5" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="nckh_dhdnModel.Faculty" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nckh_dhdnModel.Information" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="nckh_dhdnModel.Notification" Width="1.5" PointX="7.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="nckh_dhdnModel.PointTable" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="nckh_dhdnModel.ProgressLe" Width="1.5" PointX="7.5" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="nckh_dhdnModel.ProgressSt" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="nckh_dhdnModel.Statement" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nckh_dhdnModel.sysdiagram" Width="1.5" PointX="3.75" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="nckh_dhdnModel.TopicOfLecture" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="nckh_dhdnModel.TopicOfStudent" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="nckh_dhdnModel.Type" Width="1.5" PointX="1.5" PointY="12.875" IsExpanded="true" />
+        <AssociationConnector Association="nckh_dhdnModel.FK__DetailNot__Detal__44952D46" ManuallyRouted="false" />
+        <AssociationConnector Association="nckh_dhdnModel.FK__DetailSta__Statu__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="nckh_dhdnModel.FK__DetailStat__IdSt__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="nckh_dhdnModel.FK__Extension__Times__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="nckh_dhdnModel.fk_Fa" ManuallyRouted="false" />
+        <AssociationConnector Association="nckh_dhdnModel.fk_IdKhoa" ManuallyRouted="false" />
+        <AssociationConnector Association="nckh_dhdnModel.FK__TopicOfLe__Progr__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="nckh_dhdnModel.FK__PointTabl__File1__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="nckh_dhdnModel.FK__TopicOfLect__IdP__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="nckh_dhdnModel.FK__TopicOfSt__Progr__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="nckh_dhdnModel.FK__ProgressL__Statu__477199F1" ManuallyRouted="false" />
+        <AssociationConnector Association="nckh_dhdnModel.FK__ProgressS__Statu__72E607DB" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

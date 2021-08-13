@@ -1,0 +1,69 @@
+﻿@model DuAnQLNCKH.Models.Email
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var listInfo = (List<DuAnQLNCKH.Models.Email>)ViewBag.listInfo;
+}
+<div class="row">
+    <div class="col-md-10" style="font-size:25px; font-weight:bold; margin-bottom:30px">
+        Thông tin Email
+    </div>
+    <div class="col-md-2">
+        <a href="" class="fa fa-edit" data-toggle="modal" data-target="#showmodal">
+            <span class="glyphicon glyphicon-pencil"></span>
+        </a>
+    </div>
+</div>
+@foreach (var item in listInfo)
+{
+    <div id="showmodal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color:dodgerblue">
+
+                    <h4 class="modal-title" >Sửa thông tin email</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                @using (Html.BeginForm("editInfo", "UserManagement", FormMethod.Post, new { @class = "form - horizontal" }))
+                {
+                    <div class="modal-body">
+                         
+                        <div class="form-group">
+                            Email
+                            @Html.TextBoxFor(Model => Model.NameEmail, new { Value = item.NameEmail, Style="margin-left:25px; width:300px" })
+                        </div>
+                        <div class="form-group">
+                            Password
+                            @Html.PasswordFor(Model => Model.PassWord, new { Value = item.PassWord, Style = "width:300px" })
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <input type="submit" class="btn btn-primary" value="Lưu" />
+                    </div>
+                }
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+}
+    @foreach (var item in listInfo)
+    {
+        <div>
+            <div class="form-group hitec-border-bottom-dotted">
+                <label class="control-label">Email </label>
+                <div>
+                    <p class="form-control-static">@item.NameEmail</p>
+                </div>
+            </div>
+            <div class="form-group hitec-border-bottom-dotted">
+                <label class="control-label">Mật khẩu</label>
+                <div>
+                    <p class="form-control-static"><input type="password" value="@item.PassWord"/> </p>
+                </div>
+            </div>
+             
+        </div>
+    }
+
+
+
